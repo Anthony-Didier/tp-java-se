@@ -6,14 +6,14 @@ public abstract class Account {
 	protected String label;
 	protected double balance;
 	protected int accountNumber;
-	protected Client clientNumber;
+	protected Client client;
 	
-	protected Account(String label, double balance, int accountNumber, Client clientNumber) {
+	protected Account(String label, double balance, int accountNumber, Client client) {
 		super();
 		this.label = label;
 		this.balance = balance;
 		this.accountNumber = accountNumber;
-		this.clientNumber = clientNumber;
+		this.client = client;
 	}
 
 	protected String getLabel() {
@@ -40,17 +40,17 @@ public abstract class Account {
 		this.accountNumber = accountNumber;
 	}
 
-	protected Client getClientNumber() {
-		return clientNumber;
+	protected Client getClient() {
+		return client;
 	}
 
-	protected void setClientNumber(Client clientNumber) {
-		this.clientNumber = clientNumber;
+	protected void setClient(Client client) {
+		this.client = client;
 	}
 
 	@Override
 	public String toString() {
 		return "Account [label=" + label + ", balance=" + balance + ", accountNumber=" + accountNumber
-				+ ", clientNumber=" + clientNumber + "]";
+				+ ", client=" + client + "]";
 	}
 }

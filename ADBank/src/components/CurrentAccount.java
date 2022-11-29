@@ -4,8 +4,8 @@ package components;
 
 public class CurrentAccount extends Account {
 
-	public CurrentAccount(String label, float balance, int accountNumber, Client clientNumber) {
-		super(label, balance, accountNumber, clientNumber);
+	public CurrentAccount(String label, float balance, int accountNumber, Client client) {
+		super(label, balance, accountNumber, client);
 		// TODO Auto-generated constructor stub
 	}
 

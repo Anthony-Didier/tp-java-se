@@ -29,7 +29,7 @@ public class Main {
 	// 1.2.3 Creation of the table account
 
 	public static Account[] loadAccounts(Client[] arrClient) {
-		Account[] arrAccount = new Account[] {new CurrentAccount(null, 0, 0, null), new SavingsAccount(null, 0, 0, null)};
+		Account[] arrAccount = new Account[] {new CurrentAccount("My account", 0, 1, arrClient[0]), new SavingsAccount("My account", 0, 1, arrClient[0])};
 
 		for(Client val: arrClient) {
 			System.out.print(val + " balance : 0.00 ");
@@ -47,9 +47,11 @@ public class Main {
 	// 1.3.1 Adaptation of the table of accounts
 
 	public static void accountsHashtable() {
-		Hashtable<Integer, Account> accounts = new Hashtable<>();
-		accounts.put(1, null);
-		System.out.println(accounts.get(1));	
+		Client[] arrClient = generateClients();
+		Account[] arrAccount = loadAccounts(arrClient);
+		Hashtable<Integer, Account[]> accounts = new Hashtable<Integer, Account[]>();
+		accounts.put(1, arrAccount);
+		System.out.println(Arrays.toString(accounts.get(1)));	
 	}
 
 	public static void main(String[] args) {
