@@ -1,5 +1,6 @@
 package main;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -8,8 +9,12 @@ import java.util.TreeMap;
 
 import components.Account;
 import components.Client;
+import components.Credit;
 import components.CurrentAccount;
+import components.Debit;
+import components.Flow;
 import components.SavingsAccount;
+import components.Transfert;
 
 public class Main {
 
@@ -54,16 +59,25 @@ public class Main {
 		Account[] arrAccount = loadAccounts(arrClient);
 		Hashtable<Integer, Account[]> accounts = new Hashtable<Integer, Account[]>();
 		accounts.put(1, arrAccount);
-		
+
 		TreeMap<Integer, Account[]> tm = new TreeMap<Integer, Account[]>(accounts);
-		
+
 		Set<Integer> keys = tm.keySet();
-        Iterator<Integer> itr = keys.iterator();
-        
-        while (itr.hasNext()) {
-            Integer i = itr.next();
-            System.out.println(i + " " + tm.get(i));
-        }
+		Iterator<Integer> itr = keys.iterator();
+
+		while (itr.hasNext()) {
+			Integer i = itr.next();
+			System.out.println(i + " " + tm.get(i));
+		}
+	}
+
+	// 1.3.4 Creation of the flow array
+
+	public static void generateFlows() {
+		LocalDate today = LocalDate.now();
+		LocalDate flowDate = today.plusDays(2);
+		Flow[] arrFlow = new Flow[] {new Debit("Debit", 1, 50.00, 1, true, flowDate), new Credit("Credit 1", 2, 100.50, 1, true, flowDate), new Credit("Credit 2", 3, 1500.00, 1, true, flowDate), new Transfert("Transfer", 4, 50.00, 1, true, flowDate, 2)};
+		System.out.println(Arrays.toString(arrFlow));
 	}
 
 	public static void main(String[] args) {
@@ -73,7 +87,9 @@ public class Main {
 
 		loadAccounts(arrClient);
 		displayAccounts();
-		
+
 		accountsHashtable();
+
+		generateFlows();
 	}
 }

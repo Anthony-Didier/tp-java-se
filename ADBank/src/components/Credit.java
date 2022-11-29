@@ -2,12 +2,12 @@
 
 package components;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Credit extends Flow {
 
 	public Credit(String comment, int identifier, double amount, int targetAccountNumber, boolean effect,
-			Date dateOfFlow) {
+			LocalDate dateOfFlow) {
 		super(comment, identifier, amount, targetAccountNumber, effect, dateOfFlow);
 		// TODO Auto-generated constructor stub
 	}

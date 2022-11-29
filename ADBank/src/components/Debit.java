@@ -2,13 +2,13 @@
 
 package components;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Debit extends Flow {
 
 	public Debit(String comment, int identifier, double amount, int targetAccountNumber, boolean effect,
-			Date dateOfFlow) {
-		super(comment, identifier, amount, targetAccountNumber, effect, dateOfFlow);
+			LocalDate localDate) {
+		super(comment, identifier, amount, targetAccountNumber, effect, localDate);
 		// TODO Auto-generated constructor stub
 	}
 

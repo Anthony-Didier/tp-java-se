@@ -2,22 +2,22 @@
 
 package components;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Transfert extends Flow {
-	protected Account accountNumber;
+	protected int accountNumber;
 
 	public Transfert(String comment, int identifier, double amount, int targetAccountNumber, boolean effect,
-			Date dateOfFlow, Account accountNumber) {
+			LocalDate dateOfFlow, int accountNumber) {
 		super(comment, identifier, amount, targetAccountNumber, effect, dateOfFlow);
 		this.accountNumber = accountNumber;
 	}
 
-	public Account getAccountNumber() {
+	public int getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(Account accountNumber) {
+	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
