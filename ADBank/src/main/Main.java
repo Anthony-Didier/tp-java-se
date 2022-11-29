@@ -2,6 +2,9 @@ package main;
 
 import java.util.Arrays;
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeMap;
 
 import components.Account;
 import components.Client;
@@ -51,7 +54,16 @@ public class Main {
 		Account[] arrAccount = loadAccounts(arrClient);
 		Hashtable<Integer, Account[]> accounts = new Hashtable<Integer, Account[]>();
 		accounts.put(1, arrAccount);
-		System.out.println(Arrays.toString(accounts.get(1)));	
+		
+		TreeMap<Integer, Account[]> tm = new TreeMap<Integer, Account[]>(accounts);
+		
+		Set<Integer> keys = tm.keySet();
+        Iterator<Integer> itr = keys.iterator();
+        
+        while (itr.hasNext()) {
+            Integer i = itr.next();
+            System.out.println(i + " " + tm.get(i));
+        }
 	}
 
 	public static void main(String[] args) {
