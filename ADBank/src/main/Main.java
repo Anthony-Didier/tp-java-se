@@ -17,6 +17,8 @@ import components.SavingsAccount;
 import components.Transfert;
 
 public class Main {
+	static LocalDate today = LocalDate.now();
+	static LocalDate flowDate = today.plusDays(2);
 
 	// 1.1.2 Creation of main class for tests
 
@@ -37,7 +39,8 @@ public class Main {
 	// 1.2.3 Creation of the table account
 
 	public static Account[] loadAccounts(Client[] arrClient) {
-		Account[] arrAccount = new Account[] {new CurrentAccount("My account", 0, 1, arrClient[0]), new SavingsAccount("My account", 0, 1, arrClient[0])};
+		// 1.3.5 Updating accounts
+		Account[] arrAccount = new Account[] {new CurrentAccount("My account", ("Flow", 1, (-50.00 + 100.50 - 50.00), 1, true, flowDate), 1, arrClient[0]), new SavingsAccount("My account", ("Flow", 2, (-50.00 + 1500.00 - 50.00), 1, true, flowDate), 1, arrClient[0]), new CurrentAccount("My account2", ("Flow", 3, (100.50 + 50.00), 2, true, flowDate), 2, arrClient[1]), new SavingsAccount("My account2", ("Flow", 4, (1500.00 + 50.00), 2, true, flowDate), 2, arrClient[1])};
 
 		for(Client val: arrClient) {
 			System.out.print(val + " balance : 0.00 ");
@@ -74,8 +77,6 @@ public class Main {
 	// 1.3.4 Creation of the flow array
 
 	public static void generateFlows() {
-		LocalDate today = LocalDate.now();
-		LocalDate flowDate = today.plusDays(2);
 		Flow[] arrFlow = new Flow[] {new Debit("Debit", 1, 50.00, 1, true, flowDate), new Credit("Credit 1", 2, 100.50, 1, true, flowDate), new Credit("Credit 2", 3, 1500.00, 1, true, flowDate), new Transfert("Transfer", 4, 50.00, 1, true, flowDate, 2)};
 		System.out.println(Arrays.toString(arrFlow));
 	}
