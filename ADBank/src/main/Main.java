@@ -39,14 +39,21 @@ public class Main {
 	// 1.2.3 Creation of the table account
 
 	public static Account[] loadAccounts(Client[] arrClient) {
-		// 1.3.5 Updating accounts
-		Account[] arrAccount = new Account[] {new CurrentAccount("My account", ("Flow", 1, (-50.00 + 100.50 - 50.00), 1, true, flowDate), 1, arrClient[0]), new SavingsAccount("My account", ("Flow", 2, (-50.00 + 1500.00 - 50.00), 1, true, flowDate), 1, arrClient[0]), new CurrentAccount("My account2", ("Flow", 3, (100.50 + 50.00), 2, true, flowDate), 2, arrClient[1]), new SavingsAccount("My account2", ("Flow", 4, (1500.00 + 50.00), 2, true, flowDate), 2, arrClient[1])};
+		Account[] arrAccount = new Account[] {new CurrentAccount("My account", 0, 1, arrClient[0]), new SavingsAccount("My account", 0, 1, arrClient[0])};
 
 		for(Client val: arrClient) {
 			System.out.print(val + " balance : 0.00 ");
 		}
 
 		return arrAccount;
+//		// 1.3.5 Updating accounts (not working)
+//		Account[] arrAccount = new Account[] {new CurrentAccount("My account", ("Flow", 1, (-50.00 + 100.50 - 50.00), 1, true, flowDate), 1, arrClient[0]), new SavingsAccount("My account", ("Flow", 2, (-50.00 + 1500.00 - 50.00), 1, true, flowDate), 1, arrClient[0]), new CurrentAccount("My account2", ("Flow", 3, (100.50 + 50.00), 2, true, flowDate), 2, arrClient[1]), new SavingsAccount("My account2", ("Flow", 4, (1500.00 + 50.00), 2, true, flowDate), 2, arrClient[1])};
+//
+//		for(Client val: arrClient) {
+//			System.out.print(val + " balance : 0.00 ");
+//		}
+//
+//		return arrAccount;
 	}
 
 	public static void displayAccounts() {

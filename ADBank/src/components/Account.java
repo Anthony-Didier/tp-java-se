@@ -4,11 +4,11 @@ package components;
 
 public abstract class Account {
 	protected String label;
-	protected Flow balance;
+	protected double balance;
 	protected int accountNumber;
 	protected Client client;
 	
-	protected Account(String label, Flow balance, int accountNumber, Client client) {
+	protected Account(String label, double balance, int accountNumber, Client client) {
 		super();
 		this.label = label;
 		this.balance = balance;
@@ -24,13 +24,13 @@ public abstract class Account {
 		this.label = label;
 	}
 
-	protected Flow getBalance() {
+	protected double getBalance() {
 		return balance;
 	}
 	
 	// 1.3.5 Updating accounts
 
-	protected void setBalance(Flow balance) {
+	protected void setBalance(double balance) {
 		this.balance = balance;
 	}
 
